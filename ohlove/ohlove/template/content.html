@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ohlove 2014</title>
+
+    <!-- Bootstrap -->
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/media/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/media/css/index.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="background-content">
+
+    <div class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <a href="/lastest"><h2>OhLove</h2></a>
+            <ul>
+              <li><a href="/#headerwrap" class="smoothScroll">HOME</a></li>
+              <li><a href="/#about" class="smoothScroll">About</a></li>
+            </ul>
+        </div>
+        <div id="menu-toggle">
+            <i class="icon-reorder"></i>
+        </div>
+    </div>
+    <div id="contentcenter">
+        <div class="row btn-groups">
+            <a class="btn btn-primary btn-center" id="older-btn"><i class="icon-chevron-left"></i> Older</a>
+            <a class="btn btn-primary btn-center" id="today-btn">Today</a>
+            <a class="btn btn-primary btn-center" id="random-btn"><i class="icon-repeat"></i> Random</a>
+        </div>
+        <div class="contentwrap">
+            <div class="content">
+                <div class="entry">
+                    <div class="ribbon">
+                        <img src="/media/img/icon_ribbon.gif">
+                    </div>
+                    <h2 class="date">{{post.datetime}}</h2>
+                    <div style="display:none;">
+                        <h2 class="hdate">{{post.datetime|date:"Y-m-d"}}</h2>
+                        <p id="pid">{{post.id}}</p>
+                    </div>
+                    <h3 class="week"><span class="weekday_text">{{post.weekday}}</span></h3>
+                    {% autoescape off %}
+                    <div class="text">{{post.content}}</div>
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/media/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/media/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/media/js/jquery.timeago.js"></script>
+    
+    <script type="text/javascript" src="/media/js/content.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ohlove 2014</title>
+
+    <!-- Bootstrap -->
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/media/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/media/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/media/css/bootstrap-wysihtml5.css"></link>
+    <link rel="stylesheet" type="text/css" href="/media/css/wysiwyg-color.css"></link>
+    <link rel="stylesheet" type="text/css" href="/media/css/prettify.css"></link>
+    <style type="text/css" media="screen">
+    .btn.jumbo {
+        font-size: 20px;
+        font-weight: normal;
+        padding: 14px 24px;
+        margin-right: 10px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+    }
+    ul,#contentcenter li{
+        margin: 0;
+    }
+    #submit{
+        margin-left: 10px;
+        width: 100px;
+    }
+</style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="background-content">
+
+    <div class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <a href="/lastest"><h2>OhLove</h2></a>
+            <ul>
+              <li><a href="/#headerwrap" class="smoothScroll">HOME</a></li>
+              <li><a href="/#about" class="smoothScroll">About</a></li>
+            </ul>
+        </div>
+        <div id="menu-toggle">
+            <i class="icon-reorder"></i>
+        </div>
+    </div>
+    <div id="contentcenter">
+        <div class="row btn-groups">
+            <a class="btn btn-primary btn-center" id="older-btn"><i class="icon-chevron-left"></i> Older</a>
+            <a class="btn btn-primary btn-center" id="today-btn">Archieve</a>
+            <a class="btn btn-primary btn-center" id="random-btn"><i class="icon-repeat"></i> Random</a>
+        </div>
+        <div class="contentwrap">
+            <div class="content">
+                <div class="entry">
+                    <div class="ribbon">
+                        <img src="/media/img/icon_ribbon.gif">
+                    </div>
+                    <h2 class="date" style="padding-bottom:10px;"></h2>
+             
+                    <textarea id="some-textarea"></textarea>
+                    <button class="btn btn-primary" id="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/media/js/wysihtml5-0.3.0.js"></script>
+<script src="/media/js/jquery-1.7.2.min.js"></script>
+<script src="/media/js/prettify.js"></script>
+<script src="/media/js/bootstrap.min.js"></script>
+<script src="/media/js/bootstrap-wysihtml5.js"></script>
+
+    <script type="text/javascript">
+        $('#some-textarea').wysihtml5();
+        var date = new Date();
+        $("h2.date").text(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+
+        $("#submit").click(function(){
+            var content = $("#some-textarea").val();
+            $.ajax({
+                url:'/write',
+                type:'POST',
+                dataType:'json',
+                data:'content='+content,
+                success:function(data){
+                    if(data.result=='success'){
+                        alert('添加完成');
+                        window.location.href='/lastest';
+                    }
+                }
+            });
+        });
+        $("#menu-toggle").on('click',function(){
+            $("#menu-toggle").toggleClass("active");
+            $('#theMenu').toggleClass('menu-open');
+        });
+
+    </script>
+
+  </body>
+</html>
