@@ -65,9 +65,10 @@
                         <img src="/media/img/icon_ribbon.gif">
                     </div>
                     <h2 class="date" style="padding-bottom:10px;"></h2>
-             
-                    <textarea id="some-textarea"></textarea>
-                    <button class="btn btn-primary" id="submit">Submit</button>
+                    <form action="/write" method="POST">
+                        <textarea id="some-textarea" name="content"></textarea>
+                        <button class="btn btn-primary" id="submit">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -86,11 +87,13 @@
 
         $("#submit").click(function(){
             var content = $("#some-textarea").val();
+            //alert(content);
+            content = "content="+content;
             $.ajax({
                 url:'/write',
                 type:'POST',
                 dataType:'json',
-                data:'content='+content,
+                data:content,
                 success:function(data){
                     if(data.result=='success'){
                         alert('添加完成');

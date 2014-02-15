@@ -64,8 +64,9 @@ def write(request):
 		p = get_post(d.today())
 		if p is not None:
 			p.delete()
+		#print(content)
 		post(datetime=d,weekday=get_weekday(d.today().weekday()),content=content).save()
-		return HttpResponse(json.dumps({'result':'success'}))
+		return redirect('/lastest')
 	
 
 
