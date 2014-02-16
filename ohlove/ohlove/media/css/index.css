@@ -112,6 +112,9 @@ body.background-content{
 	padding-bottom: 40px;
 	font-size: 24px;
 }
+#about p.text{
+	padding: 0 50px 0 50px;
+}
 
 #enter{
 	margin-top: 30px;
@@ -202,6 +205,17 @@ textarea{
 	}
 	.btn-groups i{
 		display: none;
+	}
+
+	.container h1 {
+		font-size: 80px;
+	}
+	.container .row{
+		font-size: 20px;
+	}
+	#about{
+		height: auto;
+		padding-bottom: 40px;
 	}
 
 }
