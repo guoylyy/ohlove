@@ -135,8 +135,11 @@ body.background-content{
 	border-width: 1px;
 	border-color:#f2f1ef;
 	background-color:#dedddc;
+	margin-bottom: 10px;
 }
-
+.entry{
+	position: relative;
+}
 .content{
 	padding: 50px;
 	background-color: #fff;
@@ -185,7 +188,7 @@ textarea{
 	width: 430px;
 	min-height: 200px;
 }
-@media(min-width: 500px){
+@media(min-width: 550px){
 	#contentcenter .btn-groups{
 		padding-top: 80px;
 		padding-left: 123px;
@@ -194,7 +197,7 @@ textarea{
 	}
 
 }
-@media(max-width: 500px){
+@media(max-width: 550px){
 	#contentcenter{
 		width: auto;
 	}
@@ -217,6 +220,19 @@ textarea{
 		height: auto;
 		padding-bottom: 40px;
 	}
+	.ribbon{
+		display: none;
+	}
+
+	@media(max-width: 370px){
+		.content{
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+
 
 }
+
+
 

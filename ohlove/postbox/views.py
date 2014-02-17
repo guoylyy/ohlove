@@ -27,7 +27,7 @@ def older_post(request,ndate):
 	date_list = ndate.split('-')
 	if(len(date_list)==3):
 		d = datetime(int(date_list[0]),int(date_list[1]),int(date_list[2]))
-		p = post.objects.filter(datetime__lte=d).first()
+		p = post.objects.filter(datetime__lte=d).order_by('-datetime').first()
 		if p:
 			return HttpResponse(p.to_json())
 		else:

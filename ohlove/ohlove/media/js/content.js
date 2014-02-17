@@ -66,17 +66,20 @@ $(document).ready(function(){
 
 	function display_post(post){
 		var date = new Date(post.datetime.$date);
-		date.setHours(date.getHours()-8)
-		$("h2.date").text(jQuery.timeago(date));
-		$("span.weekday_text").text(post.weekday);
-		$("div.text").html(post.content);
-		$("h2.hdate").text(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
-		
-		if(post._id!=undefined){
-			$("#pid").text(post._id.$oid);
-		}else{
-			$("#pid").text('None');
-		}
+		var width = 400;
+		$("div.entry").fadeOut(1000,function(){
+			date.setHours(date.getHours()-8)
+			$("h2.date").text(jQuery.timeago(date));
+			$("span.weekday_text").text(post.weekday);
+			$("div.text").html(post.content);
+			$("h2.hdate").text(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+			if(post._id!=undefined){
+				$("#pid").text(post._id.$oid);
+			}else{
+				$("#pid").text('None');
+			}
+		});
+		$("div.entry").fadeIn(1000);
 
 	}
 
