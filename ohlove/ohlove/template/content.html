@@ -43,7 +43,7 @@
                     <div class="ribbon">
                         <img src="/media/img/icon_ribbon.gif">
                     </div>
-                    <h2 class="date">{{post.datetime}}</h2>
+                    <h2 class="date">{{post.datetime|date:'c'}}</h2>
                     <div style="display:none;">
                         <h2 class="hdate">{{post.datetime|date:"Y-m-d"}}</h2>
                         <p id="pid">{{post.id}}</p>
@@ -56,13 +56,12 @@
             </div>
         </div>
     </div>
-
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/media/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/media/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/media/js/jquery.timeago.js"></script>
-    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/media/js/bootstrap.js"></script>
     <script type="text/javascript" src="/media/js/content.js"></script>
   </body>
 </html>

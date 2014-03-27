@@ -66,10 +66,12 @@ body.background-content{
 }
 #headerwrap{
 	width: 100%;
-	min-height: 700px;
 	margin-top: －10px;
-	background: url("../img/tt2.jpg") no-repeat center top;
 	background-position: center;
+}
+#headerwrap img{
+	width: 100%;
+
 }
 .container{
 	width: 100%;
@@ -183,7 +185,7 @@ body.background-content{
 	color:white;
 }
 
-textarea{
+#some-textarea{
 	margin-left: 10px;
 	width: 430px;
 	min-height: 200px;
@@ -222,6 +224,9 @@ textarea{
 	}
 	.ribbon{
 		display: none;
+	}
+	#some-textarea{
+		width: 95%;
 	}
 
 	@media(max-width: 370px){

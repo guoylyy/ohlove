@@ -1,6 +1,5 @@
 !function($, wysi) {
     "use strict";
-
     var tpl = {
         "font-styles": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';

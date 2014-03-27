@@ -1,13 +1,14 @@
-from django.shortcuts import render,render_to_response,redirect
+from django.shortcuts import render_to_response,redirect
 from django.views.decorators.csrf import csrf_exempt
-from datetime import date,datetime,timedelta
+from datetime import date,datetime
 from django.http import HttpResponse
 from postbox.models import post
 from random import randint
 import simplejson as json
-import os
 
 def lastest_post(request):
+    #This page is required the 
+    #password required.
 	p = post.objects.all().order_by('-datetime').first()
 	if p == None:
 		p = post(datetime=datetime.now(),weekday=get_weekday(datetime.now().today().weekday()),content="Nonthing")
@@ -56,19 +57,27 @@ def index(request):
 
 @csrf_exempt
 def write(request):
-	if request.method== 'GET':
+    """
+    Get lastest post
+    """
+    if request.method== 'GET':
 		return render_to_response("editor.html")
-	else:
+    else:
 		content = request.POST.get('content')
 		d = datetime.now()
 		p = get_post(d.today())
 		if p is not None:
 			p.delete()
-		#print(content)
 		post(datetime=d,weekday=get_weekday(d.today().weekday()),content=content).save()
 		return redirect('/lastest')
 	
 
+#Subroutine
+def _check_cookie(request):
+    return ''
+
+def _make_cookie(uid,expire_in,response):
+    return ''
 
 def get_weekday(number):
 	week = {6:'Sunday',0:'Monday',1:'Tuesday',2:'Wednesday',3:'Thursday',4:'Friday',5:'Saturday'}
